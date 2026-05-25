@@ -7,9 +7,9 @@ on:
   workflow_dispatch:
 env:
   COMPARTMENT_ID: ${{ secrets.OCI_COMPARTMENT_ID }}
-  IMAGE_ID: "ocid1.image.oc1.ap-singapore-1.aaaaaaaa5a3xwkk5vaichk47fms2uzvsqeriats2uorf6kwgq3l3nwrbhipa"
+  IMAGE_ID: ${{ secrets.IMAGE_ID }}
   SUBNET_ID: ${{ secrets.OCI_SUBNET_ID }}
-  AD_NAME: "KClJ:AP-SINGAPORE-1-AD-1"
+  AD_NAME: ${{ secrets.AD_NAME }}
   OCI_CLI_REGION: "ap-singapore-1"
   OCI_CLI_USER: ${{ secrets.OCI_CLI_USER }}
   OCI_CLI_TENANCY: ${{ secrets.OCI_CLI_TENANCY }}
@@ -61,8 +61,8 @@ jobs:
             --image-id "$IMAGE_ID" \
             --ssh-authorized-keys-file "/home/runner/my_ssh_key.pub" \
             --assign-public-ip true \
-            --display-name "coolify-vm" \
-            --boot-volume-size-in-gbs 200 2>&1 || true)
+            --display-name "sg-arm-a1-4c24g" \
+            --boot-volume-size-in-gbs 50 2>&1 || true)
 
           # Store the log as a GitHub step output
           echo "log_data<<EOF" >> $GITHUB_OUTPUT
