@@ -58,12 +58,12 @@ jobs:
             --compartment-id "$COMPARTMENT_ID" \
             --availability-domain "$AD_NAME" \
             --shape "VM.Standard.A1.Flex" \
-            --shape-config '{"ocpus":4,"memoryInGBs":24}' \
+            --shape-config '{"ocpus":1,"memoryInGBs":6}' \
             --subnet-id "$SUBNET_ID" \
             --image-id "$IMAGE_ID" \
             --ssh-authorized-keys-file "/home/runner/my_ssh_key.pub" \
             --assign-public-ip true \
-            --display-name "sg-arm-a1-4c24g" \
+            --display-name "sg-arm-a1-1c6g" \
             --boot-volume-size-in-gbs 50 2>&1 || true)
 
           # Store the log as a GitHub step output
